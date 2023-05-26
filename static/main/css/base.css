@@ -747,7 +747,10 @@ footer .footer_list{
     .footer_list .list_item a{
         margin: 0 auto;
     }
-
+    .choose_city{
+        width: 300px;
+        left: calc(50% - 150px);
+    }
 }
 
 @media only screen and (max-width: 453px){
