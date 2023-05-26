@@ -686,6 +686,10 @@ footer .footer_social{
     margin: 0 auto;
 }
 
+footer .footer_list{
+    padding-left: 0!important;
+}
+
 @media only screen and (max-width: 790px){
     .top_header h1{
         font-size: 18px!important;
