@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Master, Center
+from .models import Center
+
 # Register your models here.
-admin.site.register(Master)
 admin.site.register(Center)
+
+
+

@@ -7,9 +7,7 @@
   padding: 0;
 }
 
-.form-select{
-    margin: 0 auto;
-}
+
 
 select:focus, select:active {
    outline: none!important;
@@ -17,12 +15,14 @@ select:focus, select:active {
 }
 
 .cover{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
     display: none;
 }
 
 .wrap{
     width: 100%;
-    position: relative;
 }
 
 .hide{
@@ -32,16 +32,11 @@ select:focus, select:active {
 
 .negligible{
     display: block;
-    height: 100vh;
-    width: 100%;
     background-color: black;
     opacity: 0.3;
     z-index: 100;
-    position: absolute!important;
-    top: 0;
-    left: 0;
-    overflow: hidden;
 }
+
 
 *{
     margin: 0;
@@ -52,6 +47,7 @@ select:focus, select:active {
 }
 
 
+/* ----------------------------------------------header------------------------------------------------------------------- */
 .logo{
     width: 250px;
     text-align: center;
@@ -80,6 +76,10 @@ select:focus, select:active {
 #header li.secondary_nav{
     display: none;
 }
+.secondary_nav form{
+    width: 100%;
+}
+
 .header_burger::before, .header_burger::after{
     content: '';
     display: block;
@@ -157,9 +157,8 @@ a{
 }
 
 .container{
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .top_header{
@@ -206,6 +205,17 @@ a{
     font-size: 18px;
 }
 
+/* -------------------------------------------------------------section1----------------------------------------------------- */
+
+.zapis_btn_media{
+    display: none;
+}
+
+.introduction_title_media{
+    display: none;
+}
+
+
 .zapis{
     color: #fff;
     padding: 15px 50px;
@@ -218,6 +228,7 @@ a{
 .zapis:hover{
     background-color: #44944A;
 }
+
 
 
 #section1{
@@ -236,6 +247,12 @@ a{
 .intro_img img{
     width: 100%;
     border-radius: 3px;
+}
+
+.choose_city form{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
 }
 
 .intro_text{
@@ -273,11 +290,13 @@ a{
     margin-bottom: 20px;
 }
 
+.choose_city form{
+    margin: 40px auto;
+}
 
 .choose_city_active{
     display: block;
 }
-
 
 .close{
     width: 30px;
@@ -308,20 +327,13 @@ a{
 }
 
 
-.select select{
-    cursor: pointer;
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-}
-
-
 
 .choose_city button{
     cursor: pointer;
     border: 0;
 }
 
+/* ---------------------------------------------------------section 2----------------------------------------------- */
 .about_us{
     display: grid;
     grid-template-columns: auto auto;
@@ -345,25 +357,29 @@ a{
 #section2{
     padding-top: 150px;
 }
+
 .about_us_text h2{
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-#section3{
-    padding-top: 130px;
-    text-align: center;
-}
+/* ---------------------------------------------------------section 3 ----------------------------------------------- */
 
-#section3 .master{
-    padding: 10px;
-}
+
+
 
 #section3 .section_head{
     margin-bottom: 30px;
 }
 
 
+#section3 .team_member img{
+    height: 300px;
+}
+
+
+
+/* ---------------------------------------------------------section 4 ----------------------------------------------- */
 #section4{
     padding-top: 100px;
 }
@@ -413,8 +429,14 @@ a{
     width: 50%;
 }
 
+/* ---------------------------------------------------------section 5---------------------------------------------- */
+#section5{
+    padding-bottom: 100px;
+}
+
 .outerdiv
 {
+
 	width: 100%;
     display: flex;
     align-items: center;
@@ -422,7 +444,6 @@ a{
 }
 .innerdiv
 {
-	transform: scale(0.9);
 	margin: 1rem;
 	display: grid;
 	grid-gap: 1.5rem;
@@ -553,39 +574,6 @@ a{
 	text-decoration: none;
 }
 
-@media only screen and (max-width: 1000px)
-{
-	.innerdiv
-	{
-		transform: scale(0.7);
-	}
-}
-@media only screen and (max-width: 800px)
-{
-	.innerdiv
-	{
-		transform: scale(0.6);
-	}
-}
-@media only screen and (max-width: 600px)
-{
-	.div1 {
-		background-position-x: 10rem;
-	}
-	.innerdiv
-	{
-		display: flex;
-		flex-direction: column;
-		transform: scale(1);
-		margin: 2rem;
-		margin-bottom: 5rem;
-	}
-	.attribution
-	{
-		position: relative;
-	}
-}
-
 #section5{
     padding-top: 100px;
 }
@@ -598,45 +586,57 @@ a{
     font-size: 26px;
 }
 
-#section3 .our_team{
+/* ---------------------------------------------------------section 6----------------------------------------------- */
+#section6{
+    padding-bottom: 100px;
+}
+
+#section6 .gallery{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
-#section3 .our_team .member{
-    width: 31%;
-    position: relative;
-    margin-bottom: 40px;
-    overflow: hidden;
+#section6 .gallery .gallery_photos{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
 }
 
-#section3 .our_team .member:hover{
-    .member_info{
-        opacity: 1;
-    }
+#section6 .gallery .gallery_text{
+    width: 50%;
+    padding: 10px 20px 0 0;
 }
 
-#section3 .our_team .member img{
+#section6 .gallery .photo img{
     width: 100%;
+    border-radius: 5px;
 }
 
-#section3 .our_team .member .member_info{
-    position: absolute;
-    top: 0;
-    opacity: 0;
+#section6 .gallery .photo{
+    margin: 5px;
+}
+#section6 .gallery .photo1{
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+#section6 .gallery .see_more{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section6 .gallery .see_more a{
+    padding: 10px 20px;
+    border: 2px solid #47A76A;
+    color: #3c3c3c;
+    cursor: pointer;
+}
+
+#section6 .all_gallery{
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    text-align: center;
-    padding-top: 100px;
-    transition: .2s opacity linear;
+    display: none;
 }
-
-#section3 .our_team .member .member_info p{
-    color: rgba(255, 255,255, 0.5);
-}
-
 
 .whatsapp_icon{
     position: fixed;
@@ -647,13 +647,11 @@ a{
     cursor: pointer;
 }
 
-
-
 .whatsapp_icon img{
     width: 100%;
 }
 
-
+/* ---------------------------------------------------------footer ---------------------------------------------------*/
 footer{
     width: 100%;
     text-align: center;
@@ -676,9 +674,7 @@ footer .footer_social img{
     width: 32px;
 }
 
-.introduction_title_media{
-    display: none;
-}
+
 footer .footer_social{
     width: 80px;
     display: flex;
@@ -689,6 +685,70 @@ footer .footer_social{
 footer .footer_list{
     padding-left: 0!important;
 }
+
+
+
+/* ---------------------------------------------------------media---------------------------------------------------*/
+@media only screen and (max-width: 1200px)
+{
+	.innerdiv
+	{
+		transform: scale(0.9);
+	}
+}
+
+@media only screen and (max-width: 1100px)
+{
+	.innerdiv
+	{
+		transform: scale(0.8);
+	}
+}
+
+@media only screen and (max-width: 960px)
+{
+	.innerdiv
+	{
+		transform: scale(0.7);
+	}
+}
+
+@media only screen and (max-width: 840px)
+{
+	.innerdiv
+	{
+		transform: scale(0.6);
+	}
+}
+
+@media only screen and (max-width: 725px)
+{
+	.innerdiv
+	{
+		transform: scale(0.5);
+	}
+}
+@media only screen and (max-width: 600px)
+{
+	.div1 {
+		background-position-x: 10rem;
+	}
+	.innerdiv
+	{
+		display: flex;
+		flex-direction: column;
+		transform: scale(1);
+		margin: 2rem;
+		margin-bottom: 5rem;
+	}
+	.attribution
+	{
+		position: relative;
+	}
+}
+
+
+
 
 @media only screen and (max-width: 790px){
     .top_header h1{
@@ -714,9 +774,6 @@ footer .footer_list{
     }
 }
 
-.zapis_btn_media{
-    display: none;
-}
 
 @media only screen and (max-width: 800px){
     .zapis_btn_media{
@@ -738,9 +795,6 @@ footer .footer_list{
 }
 
 @media only screen and (max-width: 720px){
-    .our_team .member{
-        width: 47%!important;
-    }
     .footer_list{
         display: block!important;
     }
@@ -753,11 +807,6 @@ footer .footer_list{
     }
 }
 
-@media only screen and (max-width: 453px){
-    .our_team .member{
-        width: 100%!important;
-    }
-}
 
 
 @media only screen and (max-width: 847px){
@@ -787,5 +836,28 @@ footer .footer_list{
     .top_header h1{
         font-size: 14px!important;
         width: 90px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    #section6 .gallery .gallery_photos{
+        grid-template-columns: 50% 50%;
+    }
+    #section6 .gallery .photo1{
+        grid-row: 1/3;
+        grid-column: 1/3;
+    }
+    .gallery_photos .photo:nth-child(8){
+        display: none;
+    }
+    .gallery_photos .photo:nth-child(7){
+        display: none;
+    }
+
+    #section6 .gallery .see_more a{
+        padding: 5px 10px;
+        border: 2px solid #47A76A;
+        color: #3c3c3c;
+        cursor: pointer;
     }
 }

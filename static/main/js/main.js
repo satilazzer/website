@@ -8,6 +8,8 @@ let close = document.querySelector('.close');
 let whatsapp = document.querySelector('.whatsapp_icon');
 let burger = document.querySelector('.header_burger');
 let header_navbar = document.querySelector('.bottom_header .nav_list');
+let see_more = document.querySelector('.see_more a');
+let all_gallery = document.querySelector('.all_gallery');
 /*
 window.addEventListener('scroll', function(){
     let scrollY = window.scrollY;
@@ -41,7 +43,6 @@ close.addEventListener('click', function(){
     cover.classList.remove('negligible');
     wrapper.classList.remove('hide');
 });
-
 
 
 

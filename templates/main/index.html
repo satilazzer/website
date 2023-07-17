@@ -1,0 +1,247 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+            <section id = "section1">
+                <div class="container">
+                    <div class="intro">
+                        <div class="intro_img">
+                            <h2 class = "introduction_title_media">FACE AND BODY SCULPTING CENTER</h2>
+                            <div class="intro_img_photo">
+                                <img src="{% static 'main/img/intro.jpeg' %}" alt="img">
+                            </div>
+                            <div class="zapis_btn_media">
+                                <a href="#" class = "zapis">Book</a>
+                            </div>
+                        </div>
+                        <div class="intro_text">
+                            <h2 class = "introduction_title">FACE AND BODY SCULPTING CENTER</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto cumque, dolorum eaque, error et eum excepturi hic laudantium mollitia pariatur rerum veniam voluptatum! Aspernatur eum facere nulla placeat voluptatem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti est exercitationem expedita, facilis modi neque nisi non numquam officiis quae quaerat quasi quis soluta voluptate! Aliquam modi non tempore!</p>
+                            <div class="zapis_btn">
+                                <a href="#" class = "zapis">Book</a>
+                            </div>
+                        </div>
+                        <div class="choose_city">
+                            <h2>Выберете ваш город</h2>
+                            <form action="{% url 'main:zapis' %}" method = "POST">
+                                {% csrf_token %}
+                                <div class="select">
+                                    <select class = "form-select choose_city_form" name = 'cities'>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Abu-Dhabi">Abu-Dhabi</option>
+                                        <option value="Muscat">Muscat</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="zapis">Book</button>
+                            </form>
+                            <div class="close">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section2">
+                <div class="container">
+                    <div class="about_us">
+                        <div class="about_us_text">
+                            <h2>About us</h2>
+                            <p class = "main_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam atque autem deleniti ea expedita id illum nobis. Hic, qui similique. At cumque distinctio dolorem error mollitia nam, saepe voluptas?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aspernatur facilis ipsam iste itaque labore quis repudiandae tenetur voluptas voluptatem. Aperiam aspernatur corporis dignissimos dolore illo minus officiis reprehenderit suscipit?</p>
+                            <p>🌿 <strong>Only for ladies and kids</strong></p>
+                            <p>🌿 <strong>Rejuvenation without injections</strong></p>
+                            <p>🌿 <strong>Correction without surgery</strong></p>
+                            <p>🌿 <strong>Free consultation</strong></p>
+                        </div>
+                        <div class="about_us_carousel">
+                            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{% static 'main/img/slider1.jpg' %}" class="d-block w-100" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{% static 'main/img/slider2.jpg' %}" class="d-block w-100" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{% static 'main/img/slider3.jpg' %}" class="d-block w-100" alt="img">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{% static 'main/img/slider7.jpg' %}" class="d-block w-100" alt="img">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section4">
+                <div class="container">
+                    <div class='map_details'>
+                        <div class="map">
+                            <h3>Location</h3>
+                            <iframe class src="{{center.map}}" height="450" style="border:0; width: 100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="details">
+                            <h6 class = "address">{{ center.address }}</h6>
+                            <h5>WORKING HOURS</h5>
+                            {% if center.break_day == 'Monday' %}
+                                <p>Monday : break</p>
+                            {% else %}
+                                <p>Monday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Tuesday' %}
+                                <p>Tuesday : break</p>
+                            {% else %}
+                                <p>Tuesday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Wednesday' %}
+                                <p>Wednesday : break</p>
+                            {% else %}
+                                <p>Wednesday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Thursday' %}
+                                <p>Thursday : break</p>
+                            {% else %}
+                                <p>Thursday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Friday' %}
+                                <p>Friday : break</p>
+                            {% else %}
+                                <p>Friday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Saturday' %}
+                                <p>Saturday : break</p>
+                            {% else %}
+                                <p>Saturday : 8am - 8pm</p>
+                            {% endif %}
+                            {% if center.break_day == 'Sunday' %}
+                                <p>Sunday : break</p>
+                            {% else %}
+                                <p>Sunday : 8am - 8pm</p>
+                            {% endif %} 
+                            <div class="leads">
+                                <a href="{{center.instagram}}"><img src="{% static 'main/img/icons/instagram.png' %}" alt="img"></a>
+                                <a href="{{center.whatsapp}}"><img src="{% static 'main/img/icons/whatsapp.png' %}" alt="img"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section5">
+                <div class="container">
+                    <div class="outerdiv">
+
+                        <div class="innerdiv">
+                          <!-- div1 -->
+                          <div class="div1 eachdiv">
+                            <div class="userdetails">
+                              <div class="detbox">
+                                <p class="name">Faranak h_n</p>
+                              </div>
+                            </div>
+                            <div class="review">
+                            <p>“ mostly I carry my bags with the right hand so my shoulders were so tired and there was no balance one of them was down also when i was trying to stand straight my back was tired so i tried their service and it was helpful.”</p>
+                            </div>
+                          </div>
+                          <!-- div2 -->
+                          <div class="div2 eachdiv">
+                            <div class="userdetails">
+                              <div class="detbox">
+                                <p class="name">Sally Elazab</p>
+                              </div>
+                            </div>
+                            <div class="review">
+                            <p>“Amazing place, new and different experience, changes happens from first session. I loved their staff, so friendly and professional.”</p>
+                            </div>
+                          </div>
+                          <!-- div3 -->
+                          <div class="div3 eachdiv">
+                            <div class="userdetails">
+                              <div class="detbox">
+                                <p class="name dark">Ralph Boyz</p>
+                              </div>
+                            </div>
+                            <div class="review dark">
+                              <p>“ I’ve been struggling with my face muscles since I had Bell’s Palsy a few years ago. I decided to try out the face massage they have it and it was amazing. I’ll need more sessions to fully recover, but I really enjoyed the results. Also the day after my skin was super tight and my face macules was super pumped, it feel like a face lift. The Dr is very knowledgeable and in definitely coming back. ”</p>
+                            </div>
+                          </div>
+                          <!-- div4 -->
+                          <div class="div4 eachdiv">
+                            <div class="userdetails">
+                              <div class="detbox">
+                                <p class="name dark">Lena Sami</p>
+                              </div>
+                            </div>
+                            <div class="review dark">
+                            <p>“ Loved my appointment with this clinic, they really worked on my posture and gave me a lot of advice on how to fix it ”</p>
+                            </div>
+                          </div>
+                          <!-- div5 -->
+                          <div class="div5 eachdiv">
+                            <div class="userdetails">
+                              <div class="detbox">
+                                <p class="name">Nisreen Sherbatji</p>
+                              </div>
+                            </div>
+                            <div class="review">
+                            <p>“ It was an amazing experience
+                                They heal the body in a comfortable way
+                                I love it and i will come back to them 😍♥️ ”</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section6">
+                <div class="container">
+                    <div class="gallery">
+                        <div class="gallery_text">
+                            <h2>You can explore our results of work</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cumque dolor doloremque et expedita itaque nam, nulla obcaecati, sit sunt tempore totam ullam vel. Consequuntur facere illum quod rem tenetur?</p>
+                            <div class="zapis_btn">
+                                <a href="#" class = "zapis">Book</a>
+                            </div>
+                            <div class="zapis_btn_media">
+                                <a href="#" class = "zapis">Book</a>
+                            </div>
+                        </div>
+                        <div class="gallery_photos">
+                            <div class="photo photo1">
+                                <img src="{% static 'main/img/results/res1.jpg' %}" alt="">
+                            </div>
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res2.jpg'%}" alt="">
+                            </div>
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res3.jpg'%}" alt="">
+                            </div>
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res4.jpg'%}" alt="">
+                            </div>
+                            <div class="see_more">
+                                <a href="{{center.instagram}}">see more</a>
+                            </div>
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res7.jpg'%}" alt="">
+                            </div>
+
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res6.jpg'%}" alt="">
+                            </div>
+                            <div class="photo">
+                                <img src="{% static 'main/img/results/res5.jpg'%}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}
