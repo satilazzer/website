@@ -9,8 +9,7 @@ SECRET_KEY = 'django-insecure-hf-vtcrvqe+b1j(mv!9^lm+%t60les_^46vx-xa5wd89f_wfi5
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '3.218.3.195']
-
+ALLOWED_HOSTS = ['centersculptor.com']
 
 # Application definition
 

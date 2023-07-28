@@ -348,6 +348,13 @@ a{
     margin-bottom: 20px;
 }
 
+.about_us .about_us_text b{
+    display: block;
+}
+
+.about_us .about_us_text .add_text{
+    margin-top: 20px;
+}
 
 #carouselExampleFade .carousel-item{
     width: 100%!important;
@@ -588,7 +595,7 @@ a{
 
 /* ---------------------------------------------------------section 6----------------------------------------------- */
 #section6{
-    padding-bottom: 100px;
+    padding-top: 100px;
 }
 
 #section6 .gallery{
@@ -604,6 +611,10 @@ a{
 #section6 .gallery .gallery_text{
     width: 50%;
     padding: 10px 20px 0 0;
+}
+
+#section6 .gallery .gallery_text b{
+    display: block;
 }
 
 #section6 .gallery .photo img{
@@ -637,6 +648,7 @@ a{
     width: 100%;
     display: none;
 }
+
 
 .whatsapp_icon{
     position: fixed;
@@ -834,8 +846,9 @@ footer .footer_list{
         display: none!important;
     }
     .top_header h1{
-        font-size: 14px!important;
+        font-size: 12px!important;
         width: 90px;
+        padding-right: 15px;
     }
 }
 
