@@ -41,9 +41,10 @@ select:focus, select:active {
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    font-family: 'Roboto ', sans-serif;
+    font-weight: 500;
     color: #3c3c3c;
+    font-style: italic;
 }
 
 
@@ -361,27 +362,10 @@ a{
 }
 
 
-#section2{
-    padding-top: 150px;
-}
 
 .about_us_text h2{
     font-size: 30px;
     margin-bottom: 20px;
-}
-
-/* ---------------------------------------------------------section 3 ----------------------------------------------- */
-
-
-
-
-#section3 .section_head{
-    margin-bottom: 30px;
-}
-
-
-#section3 .team_member img{
-    height: 300px;
 }
 
 
@@ -606,6 +590,7 @@ a{
     width: 50%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    padding-bottom: 100px;
 }
 
 #section6 .gallery .gallery_text{
