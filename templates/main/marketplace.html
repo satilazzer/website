@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'main/css/marketplace.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <section id="marketplace">
+        <div class="cosmetics">
+            {% for cosmetic in cosmetics %}
+                <div class="cosmetic">
+                    <div class="cosmetic_name">
+                        <h5>{{ cosmetic.name }}</h5>
+                    </div>
+                    <div class="cosmetic_img">
+                        <img src="{{ cosmetic.img.url }}" alt="img">
+                    </div>
+                    <a class="add" href = '{% url "main:add_item" cosmetic.id %}'>
+                        <img src="{% static 'main/img/icons/plus.png' %}" alt="">
+                    </a>
+
+                    <p class="cosmetic_price">{{ cosmetic.price }} AED</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    </div>
+{% endblock %}

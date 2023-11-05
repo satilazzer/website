@@ -1,5 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">{% endblock %}
 {% block content %}
     <main>
             <section id = "section1">
@@ -11,31 +13,14 @@
                                 <img src="{% static 'main/img/intro.jpeg' %}" alt="img">
                             </div>
                             <div class="zapis_btn_media">
-                                <a href="#" class = "zapis">Book</a>
+                                <a href="{{center_booking_link}}" class = "zapis">Book</a>
                             </div>
                         </div>
                         <div class="intro_text">
                             <h2 class = "introduction_title">FACE AND BODY SCULPTING CENTER</h2>
                             <p>We are number one face and body Sculpting center in GCC! We do the body and face massage using the unique author’s technique of our talented founder Aray using only hands. We successfully reduce the stomach, align the posture, correct the asymmetry of the body and face, work with scoliosis, flat feet, headaches, etc. We also remove brylya, wrinkles, nasolabial folds, lift the eyelids, and work with the jaw (make the face more beautiful and younger!)</p>
                             <div class="zapis_btn">
-                                <a href="#" class = "zapis">Book</a>
-                            </div>
-                        </div>
-                        <div class="choose_city">
-                            <h2>Choose your city</h2>
-                            <form action="{% url 'main:zapis' %}" method = "POST">
-                                {% csrf_token %}
-                                <div class="select">
-                                    <select class = "form-select choose_city_form" name = 'cities'>
-                                        <option value="Dubai">Dubai</option>
-                                        <option value="Abu-Dhabi">Abu-Dhabi</option>
-                                        <option value="Muscat">Muscat</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="zapis">Book</button>
-                            </form>
-                            <div class="close">
-                                <span></span>
+                                <a href="{{center_booking_link}}" class = "zapis">Book</a>
                             </div>
                         </div>
                     </div>
@@ -58,10 +43,10 @@
                             <b>- Acquired curvature of the legs</b>
                             <b>- Wrinkles Back pain And etc.</b>
                             <div class="zapis_btn">
-                                <a href="#" class = "zapis">Book</a>
+                                <a href="{{center_booking_link}}" class = "zapis">Book</a>
                             </div>
                             <div class="zapis_btn_media">
-                                <a href="#" class = "zapis">Book</a>
+                                <a href="{{center_booking_link}}" class = "zapis">Book</a>
                             </div>
                         </div>
                         <div class="gallery_photos">

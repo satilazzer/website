@@ -1,0 +1,131 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'main/css/checkout.css' %}">{% endblock %}
+{% block content %}
+  <section id = "checkout">
+    <div class="container">
+      <div class="details">
+        <div class="payment">
+          <div class="payment__title">
+            Payment Method
+          </div>
+          <div class="payment__types">
+            <div class="payment__type payment__type--cc active_one">
+              <i class="icon icon-credit-card"></i>Credit Card</div>
+            <div class="payment__type payment__type--paypal">
+              <i class="icon icon-paypal"></i>Cash on delivery</div>
+          </div>
+          <div class="payment__info">
+            <div class="payment__cc">
+              <h4>Total Amount {{total_sum}} AED</h4>
+              <div class="payment__title">
+                <i class="icon icon-user"></i>Personal Information
+              </div>
+              <form method = 'POST' action = '{% url "main:proceed_payment" %}' class="form__cc">
+                  {% csrf_token %}
+                  <input type="text" class="input" name = 'card_number' placeholder="Card number"/>
+                  <div class="expiry">
+                    <input class="input expiry_data" name = 'expire_year' placeholder="Year">
+                    <input class="input expiry_data" name = 'expire_month' placeholder="Month">
+                  </div>
+                  <input type="text" class="input" name = 'card_holder' placeholder="Card Holder"/>
+                  <input type="text" class="input" name = 'cvv_code' placeholder="CVV"/>
+                  <button type = 'submit' class = "btn btn_card">Place Order</button>
+              </form>
+              <form method = 'POST' action = '{% url "main:proceed_payment" %}' class="form__cc_cash">
+                  {% csrf_token %}
+                  <button type = 'submit' class = "btn btn_cash">Place Order</button>
+              </form>
+            </div>
+            <div class="payment__shipping">
+              <div class="payment__title">
+                <i class="icon icon-plane"></i>Shipping Information
+              </div>
+              <div class="details__user">
+                {% for i in shipping_details %}
+                  <p>{{i}}</p>
+                {% endfor %}
+              </div>
+              <a href="#" class="address">Change</a>
+              <div class="shipping_info">
+                 <p>Please enter your shipping details.</p>
+                <hr />
+                <form class="shipping_form" method="POST" action = '{% url "main:change_shipping_info" %}'>
+                  {% csrf_token %}
+                  <img src="{% static 'main/img/icons/plus.png' %}" alt="img" class = 'shipping_img'>
+                  <div class="fields fields--2">
+                    <label class="field">
+                      <span class="field__label" for="firstname">First name</span>
+                      <input class="field__input" type="text" id="firstname" name="first_name"/>
+                    </label>
+                    <label class="field">
+                      <span class="field__label" for="lastname">Last name</span>
+                      <input class="field__input" type="text" id="lastname" name="last_name"/>
+                    </label>
+                  </div>
+                  <label class="field">
+                    <span class="field__label" for="address">Address</span>
+                    <input class="field__input" type="text" id="address" name="address"/>
+                  </label>
+                  <label class="field">
+                    <span class="field__label" for="Apt">Apartment Number</span>
+                    <input class="field__input" type="text" id="apt" name = 'apt'/>
+                  </label>
+                  <div class="fields fields--3">
+                    <label class="field">
+                      <span class="field__label" for="phone">Phone Number</span>
+                      <input class="field__input" type="text" id="phone" name = 'phone_number'/>
+                    </label>
+                    <label class="field">
+                      <span class="field__label" for="email">Email</span>
+                      <input class="field__input" type="text" id="email" name = 'email'/>
+                    </label>
+                  </div>
+                  <div class="fields fields--3">
+                    <label class="field">
+                      <span class="field__label" for="country">Country</span>
+                      <input class="field__input" type="text" id="country" name = 'country'/>
+                    </label>
+                    <label class="field">
+                      <span class="field__label" for="city">City</span>
+                      <input class="field__input" type="text" id="city" name="city"/>
+                    </label>
+                  </div>
+                  <button class="button" type = 'submit'>Continue</button>
+                </form>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="details__item">
+          <div class="item_info">
+            {% for item in all_items %}
+              <div class="item">
+                <img src="{{ item.img.url }}" alt="">
+                <p class="item_name">{{item.name}}</p>
+                <p class="item_price">{{item.price}}</p>
+                <p class="item_desc">{{item.description}}</p>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="item_number">
+            {% for num in all_items_number %}
+              <p>{{num}}</p>
+            {% endfor %}
+          </div>
+          <div class="remove_item">
+            {% for item in all_items %}
+              <a href="{% url 'main:remove_item' item.id %}">
+                <img src="{% static 'main/img/icons/plus.png' %}" alt="img">
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+      </div>
+  </section>
+{% endblock %}

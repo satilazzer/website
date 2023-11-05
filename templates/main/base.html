@@ -22,6 +22,23 @@
 <body>
     <div class="cover"></div>
     <div class="wrap">
+        <div class="choose_city">
+            <h2>Choose your city</h2>
+            <form action="{% url 'main:confirm_city' %}" method = "POST">
+                {% csrf_token %}
+                <div class="select">
+                    <select class = "form-select choose_city_form" name = 'cities'>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Abu-Dhabi">Abu-Dhabi</option>
+                        <option value="Muscat">Muscat</option>
+                    </select>
+                </div>
+                <button type="submit" class="confirm_city">Confirm</button>
+            </form>
+            <div class="close">
+                <span></span>
+            </div>
+        </div>
         <div class="whatsapp_icon">
             <a href="{{center.whatsapp}}"><img src="{% static 'main/img/icons/whatsapp.png' %}" alt="img"></a>
         </div>
@@ -34,7 +51,7 @@
                         </div>
                         <a href="{% url 'main:index' %}" class = "logo"><img src="{% static 'main/img/logo.png' %}" alt="logo"></a>
                         <div class="secondary_nav">
-                            <form action="{% url 'main:choose_city' %}" method = "POST">
+                            <form action="{% url 'main:confirm_city' %}" method = "POST">
                                 {% csrf_token %}
                                 <div class="select">
                                     <select class = "form-select" name = 'cities' onchange="this.form.submit()">
@@ -61,7 +78,8 @@
                                 <li class="list_item"><a href="#section5">Reviews</a></li>
                                 <li class="list_item"><a href="#section6">Our works</a></li>
                                 <li class="secondary_nav">
-                                    <form action="{% url 'main:choose_city' %}" method = "POST">
+
+                                    <form action="{% url 'main:confirm_city' %}" method = "POST">
                                     {% csrf_token %}
                                         <select class = "form-select" name = 'cities' onchange="this.form.submit()">
                                             {% for c in all_cities %}

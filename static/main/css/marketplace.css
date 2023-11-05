@@ -1,0 +1,58 @@
+
+#marketplace{
+    padding-top: 100px;
+}
+#marketplace .cosmetics{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 300px;
+
+}
+#marketplace .cosmetics .cosmetic{
+    width: 25%;
+    position: relative;
+    padding: 15px;
+    background-color: rgba(128, 128, 128, 0.05);
+    border-radius: 5px;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2)!important;
+}
+
+
+#marketplace .cosmetics .cosmetic .cosmetic_price{
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+}
+
+#marketplace .add{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#marketplace .add img{
+    width: 30px;
+}
+
+#marketplace .add img:hover{
+    transform: scale(1.2);
+}
+
+#marketplace .add{
+    left: 5px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#marketplace .cosmetics .cosmetic .cosmetic_name{
+    width: 100%;
+    text-align: center;
+}
+#marketplace .cosmetics .cosmetic .cosmetic_img img{
+    width: 100%;
+}
