@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Center, Cosmetic
+from .models import Center
 
 
 # Create your views here.
@@ -7,10 +7,6 @@ def index(request):
     all_cities_booking_links = {'Dubai': 'https://sculptorbyaraykairkanova.setmore.com',
                                 'Abu-Dhabi': 'https://sculptorbyaraykairkanovaabudhabi.setmore.com',
                                 'Muscat': 'https://sculptor.setmore.com/sculptormuscat'}
-    try:
-        number_of_items = len(request.session['basket'].keys())
-    except:
-        number_of_items = 0
     all_cities = ['Dubai', 'Abu-Dhabi', 'Muscat']
     try:
         city = request.session['city']
@@ -20,7 +16,7 @@ def index(request):
     request.session['current_page'] = 'index'
 
     center = Center.objects.get(name=city)
-    return render(request, f'main/index.html', {'city': city, 'all_cities': all_cities, 'center': center, 'number_of_items': str(number_of_items), 'center_booking_link': all_cities_booking_links[city]})
+    return render(request, f'main/index.html', {'city': city, 'all_cities': all_cities, 'center': center, 'center_booking_link': all_cities_booking_links[city]})
 
 
 def confirm_city(request):
@@ -29,8 +25,6 @@ def confirm_city(request):
         current_page = request.session['current_page']
         if current_page == 'index':
             pass
-        elif current_page == 'checkout':
-            return checkout(request)
         else:
             return marketplace(request)
     except:
@@ -41,15 +35,14 @@ def confirm_city(request):
                                 'Muscat': 'https://sculptor.setmore.com/sculptormuscat'}
 
     all_cities = ['Dubai', 'Abu-Dhabi', 'Muscat']
-    number_of_items = len(request.session['basket'])
     request.session['city'] = request.POST['cities']
     city = request.session['city']
     request.session['center_link'] = all_cities_booking_links[city]
     center = Center.objects.get(name=city)
-    return render(request, f'main/{current_page}.html', {'city': city, 'all_cities': all_cities, 'center': center, 'center_booking_link': all_cities_booking_links[city], 'number_of_items': str(number_of_items)})
+    return render(request, f'main/{current_page}.html', {'city': city, 'all_cities': all_cities, 'center': center, 'center_booking_link': all_cities_booking_links[city]})
 
 
-def marketplace(request):
+'''def marketplace(request):
     try:
         number_of_items = len(request.session['basket'].keys())
     except:
@@ -65,9 +58,9 @@ def marketplace(request):
     cosmetics = Cosmetic.objects.all()
     return render(request, 'main/marketplace.html',
                   {'cosmetics': cosmetics, 'city': city, 'all_cities': all_cities, 'center': center, 'number_of_items': str(number_of_items)})
+'''
 
-
-def checkout(request):
+'''def checkout(request):
     request.session['current_page'] = 'checkout'
     try:
         number_of_items = len(request.session['basket'].keys())
@@ -93,9 +86,9 @@ def checkout(request):
     shipping_details = request.session['shipping_details']
     total_sum = sum([i.price for i in all_items])
     return render(request, 'main/checkout.html', {'city': city, 'all_cities': all_cities, 'center': center, 'number_of_items': str(number_of_items), 'all_items': all_items, 'all_items_number': all_items_number, 'shipping_details': shipping_details, 'total_sum': total_sum})
+'''
 
-
-def add_item(request, item_id):
+'''def add_item(request, item_id):
     try:
         request.session['basket'][str(item_id)] += 1
     except:
@@ -104,14 +97,14 @@ def add_item(request, item_id):
         request.session['basket'][str(item_id)] += 1
     print(request.session['basket'])
     return redirect('../marketplace')
+'''
 
-
-def remove_item(request, item_id):
+'''def remove_item(request, item_id):
     del request.session['basket'][str(item_id)]
-    return redirect('../checkout')
+    return redirect('../checkout')'''
 
 
-def change_shipping_info(request):
+'''def change_shipping_info(request):
     first_name = request.POST['first_name']
     last_name = request.POST['last_name']
     address = request.POST['address']
@@ -121,15 +114,15 @@ def change_shipping_info(request):
     email = request.POST['email']
     request.session['shipping_details'] = [first_name, last_name, address, city, country, phone_number, email]
     print(request.session['shipping_details'])
-    return redirect('../checkout')
+    return redirect('../checkout')'''
 
 
 
-def proceed_payment(request):
-    pass
+'''def proceed_payment(request):
+    pass'''
 
 
-def search_item(request):
+'''def search_item(request):
     search_text = request.POST['search_text']
     try:
         number_of_items = len(request.session['basket'].keys())
@@ -146,3 +139,4 @@ def search_item(request):
     cosmetics = Cosmetic.objects.filter(description__contains = search_text)
     return render(request, 'main/marketplace.html',
                   {'cosmetics': cosmetics, 'city': city, 'all_cities': all_cities, 'center': center, 'number_of_items': str(number_of_items)})
+'''

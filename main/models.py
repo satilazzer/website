@@ -13,11 +13,11 @@ class Center(models.Model):
         return self.name
 
 
-class Cosmetic(models.Model):
+'''class Cosmetic(models.Model):
     name = models.CharField('cosmetic', max_length=100)
     img = models.ImageField('img', upload_to='uploads/')
     price = models.IntegerField()
     description = models.TextField('desc')
 
     def __str__(self):
-        return self.name
+        return self.name'''
